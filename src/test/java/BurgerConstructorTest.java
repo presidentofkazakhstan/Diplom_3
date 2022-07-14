@@ -1,10 +1,9 @@
 import com.codeborne.selenide.Configuration;
-import io.restassured.response.ValidatableResponse;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import io.qameta.allure.junit4.DisplayName;
-import ru.yandex.praktikum.PageObject.BurgerConstructorPage;
+import ru.yandex.praktikum.pageobject.RegistrationAndLoginPage;
 
 
 
@@ -26,21 +25,21 @@ public class BurgerConstructorTest {
     @Test
     @DisplayName("Click to Topping Tab")
     public void clickToppingTab () {
-        BurgerConstructorPage burgerConstructorPage  =  open(url, BurgerConstructorPage.class);
-        burgerConstructorPage.clickToTopping("Начинки");
+        RegistrationAndLoginPage burgerConstructor  =  open(url, RegistrationAndLoginPage.class);
+        burgerConstructor.clickToTopping("Начинки");
     }
 
     @Test
     @DisplayName("Click to Bun Tab")
     public void clickBunTab () {
-        BurgerConstructorPage burgerConstructorPage  =  open(url, BurgerConstructorPage.class);
-        burgerConstructorPage.clickToBun("Булки");
+        RegistrationAndLoginPage burgerConstructor  =  open(url, RegistrationAndLoginPage.class);
+        burgerConstructor.clickToBun("Булки");
     }
 
     @Test
     @DisplayName("Click to Sauce Tab")
     public void clickSaucesTab () {
-        BurgerConstructorPage burgerConstructorPage  =  open(url, BurgerConstructorPage.class);
-        burgerConstructorPage.clickToSauces("Соусы");
+        RegistrationAndLoginPage burgerConstructor  =  open(url, RegistrationAndLoginPage.class);
+        burgerConstructor.clickToSauces("Соусы");
     }
 }

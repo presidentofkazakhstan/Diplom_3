@@ -1,4 +1,4 @@
-package ru.yandex.praktikum.PageObject;
+package ru.yandex.praktikum.pageobject;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 import com.codeborne.selenide.SelenideElement;
@@ -69,7 +69,7 @@ public class UserProfilePage  {
         clickEnterAuthorizationButton();
         personalAreaButton.shouldBe(visible);
         clickPersonalAreaButton();
-        assertEquals(email, EmailFieldInProfile.getValue());
+        assertEquals(email.toLowerCase(), EmailFieldInProfile.getValue().toLowerCase());
     }
 
     public void goToBurgerConstructor( String email, String password ){

@@ -1,4 +1,4 @@
-package ru.yandex.praktikum.PageObject;
+package ru.yandex.praktikum.pageobject;
 
 import org.apache.commons.lang3.RandomStringUtils;
 

@@ -1,4 +1,4 @@
-package ru.yandex.praktikum.PageObject;
+package ru.yandex.praktikum.pageobject;
 
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
@@ -46,6 +46,43 @@ public class RegistrationAndLoginPage {
     @FindBy(how = How.LINK_TEXT,using = "Восстановить пароль")
     private SelenideElement restorePasswordButton;
 
+    @FindBy(how = How.XPATH,using = ".//span[text()='Соусы']")
+    private SelenideElement saucesButton;
+    @FindBy(how = How.XPATH,using = ".//span[text()='Булки']")
+    private SelenideElement bunsButton;
+    @FindBy(how = How.XPATH,using = ".//span[text()='Начинки']")
+    private SelenideElement toppingsButton;
+
+    @FindBy(how = How.XPATH,using = ".//div[@class='tab_tab__1SPyG tab_tab_type_current__2BEPc pt-4 pr-10 pb-4 pl-10 noselect']/span")
+    private SelenideElement currentTab;
+
+    public void clickSaucesButton() {
+        saucesButton.click();
+    }
+
+    public void clickBunsButton() {
+        bunsButton.click();
+    }
+
+    public void clickToppingsButton() {
+        toppingsButton.click();
+    }
+
+    public void clickToTopping(String expectedTab ){
+        clickToppingsButton();
+        assertEquals(expectedTab, currentTab.getText());
+    }
+
+    public void clickToBun(String expectedTab ){
+        clickToppingsButton();
+        clickBunsButton();
+        assertEquals(expectedTab, currentTab.getText());
+    }
+
+    public void clickToSauces(String expectedTab ){
+        clickSaucesButton();
+        assertEquals(expectedTab, currentTab.getText());
+    }
 
     public void clickPersonalAreaButton() {
         personalAreaButton.click();
@@ -103,11 +140,6 @@ public class RegistrationAndLoginPage {
         setEmailField(email);
         setPasswordField(password);
         clickConfirmRegistrationButton();
-
-        setSecondEmailField(email);
-        setPasswordField(password);
-        clickEnterAuthorizationButton();
-
     }
     public void failedCreateUser(String name, String email, String password ){
         clickPersonalAreaButton();
